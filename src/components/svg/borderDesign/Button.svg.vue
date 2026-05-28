@@ -16,7 +16,7 @@
       />
     </svg>
     <div
-      class="relative z-10 w-full h-full overflow-auto text-xl text-center text-(--primary) hover:text-(--text-dark) hover:font-medium transition-all duration-150"
+      class="relative z-10 w-full h-full overflow-auto text-xl text-center text-(--text-color) hover:text-(--text-dark) hover:font-medium transition-all duration-150"
     >
       <slot />
     </div>

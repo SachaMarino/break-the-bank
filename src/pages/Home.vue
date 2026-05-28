@@ -1,10 +1,15 @@
 <script>
-import BorderMainSvg from "@/components/svg/BorderMain.svg.vue";
-import ButtonSvg from "@/components/svg/Button.svg.vue";
+import BorderContentSvg from "@/components/svg/borderDesign/BorderContent.svg.vue";
+import BorderMainSvg from "@/components/svg/borderDesign/BorderMain.svg.vue";
+import ButtonSvg from "@/components/svg/borderDesign/Button.svg.vue";
+import TreasureSvg from "@/components/svg/Treasure.svg.vue";
+
 export default {
   components: {
     BorderMainSvg,
     ButtonSvg,
+    BorderContentSvg,
+    TreasureSvg,
   },
 };
 </script>
@@ -14,8 +19,18 @@ export default {
     <h1 class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start">
       Break the bank
     </h1>
-    <ButtonSvg>
-      <button class="w-full h-full">Commencez</button>
-    </ButtonSvg>
+    <div class="flex flex-col md:flex-row justify-around gap-5 w-full h-full">
+      <div class="w-[50%] flex justify-center items-start">
+        <BorderContentSvg>
+          <h1 class="self-start">Hello</h1>
+        </BorderContentSvg>
+      </div>
+      <div class="flex w-[50%] flex-col gap-5 h-full items-center">
+        <TreasureSvg />
+        <ButtonSvg>
+          <button class="w-full h-full">Commencez</button>
+        </ButtonSvg>
+      </div>
+    </div>
   </BorderMainSvg>
 </template>
