@@ -5,7 +5,7 @@
       viewBox="0 0 1279 920"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class="absolute inset-0 w-full h-full z-0 pointer-events-none p-10"
+      class="absolute inset-0 w-full h-full z-0 pointer-events-none md:p-10 p-3"
       preserveAspectRatio="none"
     >
       <path
