@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-full max-w-71 max-h-76">
+  <div class="relative w-full h-full max-w-91 max-h-96">
     <svg
       viewBox="0 0 285 304"
       fill="none"
