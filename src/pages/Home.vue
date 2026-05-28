@@ -9,6 +9,8 @@ export default {
 
 <template>
   <BorderMainSvg>
-    <h1 class="text-(--title) text-4xl self-start">Break the bank</h1>
+    <h1 class="text-(--title) text-[clamp(2rem,3vw,3rem)] self-start">
+      Break the bank
+    </h1>
   </BorderMainSvg>
 </template>

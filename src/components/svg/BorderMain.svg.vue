@@ -16,7 +16,7 @@
       />
     </svg>
     <div
-      class="relative z-10 w-full h-full sx:p-20 sm:p-25 md:p-30 m-auto flex flex-col items-center justify-start overflow-auto text-(--text-color)"
+      class="relative z-10 w-full h-full p-20 text-center sm:p-25 md:p-30 m-auto flex flex-col items-center justify-start overflow-auto text-(--text-color)"
     >
       <slot />
     </div>
