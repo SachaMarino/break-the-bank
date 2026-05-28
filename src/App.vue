@@ -1,5 +1,12 @@
-<script setup lang="ts"></script>
+<script>
+import Home from "./pages/Home.vue";
+export default {
+  components: {
+    Home,
+  },
+};
+</script>
 
 <template>
-    <button class="btn">hello</button>
+  <Home />
 </template>
