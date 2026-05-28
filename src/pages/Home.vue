@@ -19,13 +19,15 @@ export default {
     <h1 class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start">
       Break the bank
     </h1>
-    <div class="flex flex-col md:flex-row justify-around gap-5 w-full h-full">
-      <div class="w-[50%] flex justify-center items-start">
-        <BorderContentSvg>
-          <h1 class="self-start">Hello</h1>
-        </BorderContentSvg>
-      </div>
-      <div class="flex w-[50%] flex-col gap-5 h-full items-center">
+    <div
+      class="flex flex-col md:flex-row md:justify-between gap-5 w-full h-full"
+    >
+      <BorderContentSvg class="w-[20%] self-start">
+        <h1 class="self-start">Hello</h1>
+      </BorderContentSvg>
+      <div
+        class="flex w-[80%] flex-col gap-5 h-full justify-center items-center"
+      >
         <TreasureSvg />
         <ButtonSvg>
           <button class="w-full h-full">Commencez</button>
