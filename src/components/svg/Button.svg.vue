@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-50 h-15 overflow-hidden group">
+  <div class="relative w-full h-full max-w-50 max-h-15 overflow-hidden group">
     <svg
       viewBox="0 0 331 87"
       fill="none"
@@ -16,7 +16,7 @@
       />
     </svg>
     <div
-      class="relative z-10 w-full h-full overflow-auto text-xl text-(--primary) hover:text-(--text-dark) hover:font-medium transition-all duration-150"
+      class="relative z-10 w-full h-full overflow-auto text-xl text-center text-(--primary) hover:text-(--text-dark) hover:font-medium transition-all duration-150"
     >
       <slot />
     </div>
