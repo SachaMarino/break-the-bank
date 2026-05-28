@@ -25,6 +25,7 @@ export default {
       <BorderContentSvg class="w-[20%] self-start">
         <h1 class="self-start">Hello</h1>
       </BorderContentSvg>
+
       <div
         class="flex w-[80%] flex-col gap-5 h-full justify-center items-center"
       >
