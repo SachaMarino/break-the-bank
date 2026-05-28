@@ -31,7 +31,7 @@ export default {
       >
         <TreasureSvg />
         <ButtonSvg>
-          <button class="w-full h-full">Commencez</button>
+          <button class="w-full h-full cursor-pointer">Commencez</button>
         </ButtonSvg>
       </div>
     </div>
