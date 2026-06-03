@@ -15,22 +15,22 @@ export default {
 </script>
 
 <template>
-  <BorderMainSvg>
+  <BorderMainSvg variant="home">
     <h1 class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start">
       Break the bank
     </h1>
     <div
       class="flex flex-col md:flex-row md:justify-between gap-5 w-full h-full"
     >
-      <BorderContentSvg class="w-[20%] self-start">
+      <BorderContentSvg variant="home" class="w-[20%] self-start">
         <h1 class="self-start">Hello</h1>
       </BorderContentSvg>
 
       <div
         class="flex w-[80%] flex-col gap-5 h-full justify-center items-center"
       >
-        <TreasureSvg />
-        <ButtonSvg>
+        <TreasureSvg variant="home" />
+        <ButtonSvg variant="home">
           <button class="w-full h-full cursor-pointer">Commencez</button>
         </ButtonSvg>
       </div>
