@@ -1,5 +1,24 @@
+<script>
+export default {
+    props: {
+      variant: {
+        type: String,
+        default: 'home',
+        validator: (value) => ['home', 'win', 'loose'].includes(value),
+      }
+    },
+
+    computed: {
+      svgColor() {
+        if (this.variant === 'loose') return '#E50000'
+        if (this.variant === 'win') return '#4ADE80'
+        return '#FCC600'
+      }
+    }
+}
+</script>
 <template>
-  <div class="relative w-full h-full max-w-50 max-h-15 overflow-hidden group">
+  <div class="relative w-full h-full max-h-20 overflow-hidden group">
     <svg
       viewBox="0 0 331 87"
       fill="none"
@@ -9,7 +28,7 @@
     >
       <path
         d="M2 28.4279V85H301.716L329 48.2488V2H23.9102L2 28.4279Z"
-        stroke="#FCC600"
+        :stroke="svgColor"
         stroke-width="4"
         vector-effect="non-scaling-stroke"
         class="group-hover:fill-(--primary) transition-colors duration-300"
