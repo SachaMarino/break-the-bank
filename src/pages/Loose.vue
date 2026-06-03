@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <BorderMainSvg variant="loose" class="bg-(--shadow-error) flex">
+  <BorderMainSvg variant="loose" class="background-error flex">
 
     <div class="flex flex-col gap-5 w-full h-full justify-between">
 
@@ -49,10 +49,10 @@ export default {
         </div>
 
         <div class="flex flex-col w-[20%] gap-10 h-full justify-center items-end">
-          <ButtonSvg variant="loose">
+          <ButtonSvg variant="loose" class="max-w-full">
             <button class="w-full h-full cursor-pointer">Rejouer</button>
           </ButtonSvg>
-          <ButtonSvg variant="loose">
+          <ButtonSvg variant="loose" class="max-w-full">
             <button class="w-full h-full cursor-pointer">Accueil</button>
           </ButtonSvg>
         </div>
@@ -61,5 +61,7 @@ export default {
   </BorderMainSvg>
 </template>
 <style scoped>
-
+.background-error {
+  background: var(--shadow-error);
+}
 </style>
