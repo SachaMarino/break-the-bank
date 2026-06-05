@@ -13,6 +13,12 @@
   --shadow-error: linear-gradient(40deg, #020202 0%, #412525 100%);
   --shadow-success: linear-gradient(40deg, #020202 0%, #103114 100%);
   --family-primary: "Orbitron", sans-serif;
-  background: var(--shadow-main);
+
   font-family: var(--family-primary);
+}
+body {
+  background: var(--shadow-main);
+}
+.test {
+  background: var(--shadow-error);
 }
