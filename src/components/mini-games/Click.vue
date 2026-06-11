@@ -30,7 +30,7 @@ export default {
 };
 </script>
 <template>
-  <div class="flex flex-col gap-2 items-center mt-20 text-(--text-color)">
+  <div class="flex flex-col gap-5 items-center mt-20 text-(--text-color)">
     <h1 class="text-(--title) text-3xl">Cliquez vite!</h1>
     <!-- Carré cliquable -->
     <div
@@ -39,7 +39,7 @@ export default {
     ></div>
 
     <!-- Compteur -->
-    <div class="mt-5 text-3xl">
+    <div class="text-3xl">
       <span v-if="!win">{{ clics }} / 25</span>
       <span v-else>🎉 Gagné !</span>
     </div>
