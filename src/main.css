@@ -1,2 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* utilisation dans tailwind: exemple pour color le text c'est text-(--text-color)*/
+:root {
+  --primary: #fcc600;
+  --secondary: #564508;
+  --text-dark: #020202;
+  --title: #e6d300;
+  --text-color: #fffcdd;
+  --shadow-main: linear-gradient(40deg, #020202 0%, #413d25 100%);
+  --shadow-error: linear-gradient(40deg, #020202 0%, #412525 100%);
+  --shadow-success: linear-gradient(40deg, #020202 0%, #103114 100%);
+  --family-primary: "Orbitron", sans-serif;
+  background: var(--shadow-main);
+  font-family: var(--family-primary);
+}
