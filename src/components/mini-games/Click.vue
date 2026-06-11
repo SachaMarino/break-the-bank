@@ -41,7 +41,7 @@ export default {
     <!-- Compteur -->
     <div class="text-3xl">
       <span v-if="!win">{{ clics }} / 25</span>
-      <span v-else>🎉 Gagné !</span>
+      <span v-else>Gagné !</span>
     </div>
 
     <!-- Bouton rejouer -->
