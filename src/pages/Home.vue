@@ -47,7 +47,7 @@ export default {
           class="flex w-[60%] flex-col gap-5 h-full justify-center items-center"
         >
           <TreasureSvg variant="home" />
-          <ButtonSvg variant="home">
+          <ButtonSvg variant="home" class="max-w-50">
             <button class="w-full h-full cursor-pointer">Commencez</button>
           </ButtonSvg>
         </div>
