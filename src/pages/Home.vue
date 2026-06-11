@@ -23,7 +23,7 @@ export default {
       <div
         class="flex flex-col md:flex-row md:justify-between gap-5 w-full h-full"
       >
-        <BorderContentSvg variant="home" class="w-[20%] self-start">
+        <BorderContentSvg variant="home" class="w-[20%] flex flex-col self-start">
           <h1 class="self-start my-3 text-2xl">Bienvenue</h1>
           <ul
             class="self-start text-start flex flex-col gap-2 text-sm md:text-lg pr-4 lg:pr-5"

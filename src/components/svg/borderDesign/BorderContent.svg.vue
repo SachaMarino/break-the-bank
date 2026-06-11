@@ -11,7 +11,7 @@ export default {
     computed: {
       svgColor() {
         if (this.variant === 'loose') return '#E50000'
-        if (this.variant === 'win') return '#4ADE80'
+        if (this.variant === 'win') return '#0EC824'
         return '#FCC600'
       }
     }
@@ -33,7 +33,7 @@ export default {
       />
     </svg>
     <div
-      class="flex items-center content-center align-content justify-start relative z-10 w-full h-full p-5 md:p-10 text-center m-auto overflow-auto text-(--text-color)"
+      class="flex flex-col justify-center items-center content-center align-content relative z-10 w-full h-full p-5 md:p-10 text-center m-auto overflow-auto text-(--text-color)"
     >
       <slot />
     </div>

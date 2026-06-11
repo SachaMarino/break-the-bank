@@ -11,8 +11,13 @@ export default {
     computed: {
       svgColor() {
         if (this.variant === 'loose') return '#E50000'
-        if (this.variant === 'win') return '#4ADE80'
+        if (this.variant === 'win') return '#0EC824'
         return '#FCC600'
+      },
+      hoverVariant(){
+        if (this.variant === 'loose') return 'group-hover:fill-(--error)'
+        if (this.variant === 'win') return 'group-hover:fill-(--success)'
+        return 'group-hover:fill-(--primary)'
       }
     }
 }
@@ -31,7 +36,8 @@ export default {
         :stroke="svgColor"
         stroke-width="4"
         vector-effect="non-scaling-stroke"
-        class="group-hover:fill-(--primary) transition-colors duration-300"
+        class="transition-colors duration-300"
+        :class="hoverVariant"
       />
     </svg>
     <div

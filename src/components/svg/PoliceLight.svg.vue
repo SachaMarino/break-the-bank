@@ -11,7 +11,7 @@ export default {
     computed: {
       svgColor() {
         if (this.variant === 'loose') return '#E50000'
-        if (this.variant === 'win') return '#4ADE80'
+        if (this.variant === 'win') return '#0EC824'
         return '#FCC600'
       }
     }
