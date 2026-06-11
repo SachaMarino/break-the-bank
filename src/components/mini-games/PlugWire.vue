@@ -62,6 +62,7 @@ export default {
                 end: this.getElementCenter(event.currentTarget),
             };
 
+            this.checkWin();
             this.stopDrag();
         },
 
@@ -83,6 +84,15 @@ export default {
             }
 
             this.shuffledWires = colors;
+        },
+        checkWin() {
+            const hasWon = Object.values(this.wires).every(
+                (isConnected) => isConnected,
+            );
+
+            if (hasWon) {
+                this.$emit("success");
+            }
         },
     },
 };
