@@ -9,6 +9,7 @@ export default {
             limit: 0,
         };
     },
+    emits: ["timeout"],
     methods: {
         start() {
             this.stop();
@@ -22,6 +23,7 @@ export default {
                 Math.floor((performance.now() - this.startedAt) / 1000);
             if (this.time <= 0) {
                 this.stop();
+                this.$emit("timeout");
             }
         },
         stop() {
