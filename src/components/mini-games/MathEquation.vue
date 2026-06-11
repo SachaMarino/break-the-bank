@@ -58,7 +58,7 @@ export default {
         Résoudre ce probleme de math
       </h1>
       <p class="text-(--title) text-5xl w-fit m-auto px-5 py-2 border border-(--primary)"> {{ firstNb }} X {{ secNb }}</p>
-      <input type="number" v-model="response" @keyup.enter="submitResponse()" name="response" id="response" class="text-(--title) text-3xl max-w-80 m-auto px-5 py-2 border border-(--primary)">
+      <input type="number" v-model="response" @keyup.enter="submitResponse()" min="0" name="response" id="response" class="text-(--title) text-3xl max-w-80 m-auto px-5 py-2 border border-(--primary)">
       <div class="flex flex-wrap gap-2 justify-center items-center">
         <button
           v-for="key in keyboard"
