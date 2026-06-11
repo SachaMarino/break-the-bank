@@ -19,7 +19,7 @@ export default {
     };
   },
   methods: {
-    startGame() {
+    restartGame() {
       this.currentNumber = 1;
       this.foundNumbers = [];
       this.gameWon = false;
@@ -69,7 +69,7 @@ export default {
       <div v-if="gameWon">
         <h2>Manche suivante</h2>
         <ButtonSvg>
-          <button @click="startGame" class="py-3">Rejouer</button>
+          <button @click="restartGame" class="py-3">Rejouer</button>
         </ButtonSvg>
       </div>
     </div>
