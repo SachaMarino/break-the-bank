@@ -1,21 +1,21 @@
 <script>
 export default {
-    props: {
-      variant: {
-        type: String,
-        default: 'home',
-        validator: (value) => ['home', 'win', 'loose'].includes(value),
-      }
+  props: {
+    variant: {
+      type: String,
+      default: "home",
+      validator: (value) => ["home", "win", "loose"].includes(value),
     },
+  },
 
-    computed: {
-      svgColor() {
-        if (this.variant === 'loose') return '#E50000'
-        if (this.variant === 'win') return '#4ADE80'
-        return '#FCC600'
-      }
-    }
-}
+  computed: {
+    svgColor() {
+      if (this.variant === "loose") return "#E50000";
+      if (this.variant === "win") return "#4ADE80";
+      return "#FCC600";
+    },
+  },
+};
 </script>
 <template>
   <div class="relative w-full h-full max-w-140 max-h-152 overflow-hidden">
@@ -33,7 +33,7 @@ export default {
       />
     </svg>
     <div
-      class="flex items-center content-center align-content justify-start relative z-10 w-full h-full p-5 md:p-10 text-center m-auto overflow-auto text-(--text-color)"
+      class="flex flex-col items-center content-center align-content justify-start relative z-10 w-full h-full p-5 md:p-10 text-center m-auto overflow-auto text-(--text-color)"
     >
       <slot />
     </div>
