@@ -14,12 +14,15 @@ export default {
   },
   methods: {
     increment() {
-      if (this.win) return;
+      if (this.win){
+        this.$emit("success");
+      };
 
       this.clics++;
 
       if (this.clics >= this.goals) {
         this.win = true;
+        this.$emit("success");
       }
     },
     restartGame() {
@@ -40,13 +43,7 @@ export default {
 
     <!-- Compteur -->
     <div class="text-3xl">
-      <span v-if="!win">{{ clics }} / 25</span>
-      <span v-else>Gagné !</span>
+      <span>{{ clics }} / 25</span>
     </div>
-
-    <!-- Bouton rejouer -->
-    <ButtonSvg v-if="win">
-      <button @click="restartGame" class="py-3">Rejouer</button>
-    </ButtonSvg>
   </div>
 </template>

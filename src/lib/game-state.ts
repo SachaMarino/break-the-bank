@@ -5,9 +5,22 @@ export type GameStatus =
   | "miniGameLost"
   | "miniGameWon";
 
-export type MiniGameId = "order-number" | "plug-wire";
+export type MiniGameId =
+  | "order-number"
+  | "plug-wire"
+  | "click"
+  | "defusing"
+  | "math-equation"
+  | "progress-bar";
 
-const availableMiniGames: MiniGameId[] = ["order-number", "plug-wire"];
+const availableMiniGames: MiniGameId[] = [
+  "order-number",
+  "plug-wire",
+  "click",
+  "defusing",
+  "math-equation",
+  "progress-bar",
+];
 
 const defaultLives = 3;
 const defaultLevels = 3;

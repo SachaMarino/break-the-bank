@@ -13,12 +13,10 @@ export default {
       firstNb: 1,
       secNb: 1,
       response: '',
-      gameWon:false,
     };
   },
   methods: {
     startGame() {
-      this.gameWon = false;
       this.response = '';
       this.firstNb = Math.floor(Math.random() * 9) + 1;
       this.secNb = Math.floor(Math.random() * 9) + 1;
@@ -38,11 +36,9 @@ export default {
     },
     submitResponse(){
       if(Number(this.response) === (this.firstNb * this.secNb)){
-        console.log('true');
-        this.gameWon = true;
+        this.$emit("success");
       }else{
-        console.log('false');
-
+        this.$emit("fail");
       }
     }
   },
@@ -68,13 +64,6 @@ export default {
         >
         {{ key }}
         </button>
-
-        <div v-if="gameWon">
-          <h2>Manche suivante</h2>
-          <ButtonSvg>
-            <button @click="startGame" class="py-3">Rejouer</button>
-          </ButtonSvg>
-        </div>
       </div>
     </div>
   </BorderMainSvg>

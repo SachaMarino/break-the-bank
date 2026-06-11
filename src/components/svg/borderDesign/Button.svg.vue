@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <template>
-  <div class="relative w-full h-full max-w-50 max-h-15 overflow-hidden group">
+  <div class="relative w-full h-full max-h-15 overflow-hidden group">
     <svg
       viewBox="0 0 331 87"
       fill="none"

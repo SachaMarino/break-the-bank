@@ -43,22 +43,22 @@ export default {
           </ul>
         </BorderContentSvg>
 
-                <div
-                    class="flex w-[60%] flex-col gap-5 h-full justify-center items-center"
-                >
-                    <TreasureSvg variant="home" />
-                    <ButtonSvg variant="home">
-                        <button
-                            class="w-full h-full cursor-pointer"
-                            @click="$emit('start-game')"
-                        >
-                            Commencez
-                        </button>
-                    </ButtonSvg>
-                </div>
-            </div>
+        <div
+          class="flex w-[60%] flex-col gap-5 h-full justify-center items-center"
+        >
+          <TreasureSvg variant="home" />
+          <ButtonSvg variant="home" class="max-w-50">
+            <button
+                class="w-full h-full cursor-pointer"
+                @click="$emit('start-game')"
+            >
+                Commencez
+            </button>
+          </ButtonSvg>
         </div>
-    </BorderMainSvg>
+      </div>
+    </div>
+  </BorderMainSvg>
 </template>
 <style scoped>
 li {

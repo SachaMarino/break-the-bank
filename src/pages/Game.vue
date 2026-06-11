@@ -9,10 +9,18 @@ import {
 import OrderNumber from "../components/mini-games/OrderNumber.vue";
 import PlugWire from "../components/mini-games/PlugWire.vue";
 import GameBar from "../components/GameBar.vue";
+import Click from "@/components/mini-games/Click.vue";
+import Defusing from "@/components/mini-games/Defusing.vue";
+import MathEquation from "@/components/mini-games/MathEquation.vue";
+import ProgressBar from "@/components/mini-games/ProgressBar.vue";
 
 const miniGameComponents = {
     "order-number": OrderNumber,
     "plug-wire": PlugWire,
+    "click": Click,
+    "defusing": Defusing,
+    "math-equation": MathEquation,
+    "progress-bar": ProgressBar,
 };
 
 export default {
@@ -39,6 +47,9 @@ export default {
     methods: {
         handleSuccess() {
             winLevel(this.state);
+            if (this.state.status === "win") {
+                this.$emit("game-won");
+            }
         },
         handleFail() {
             loseLevel(this.state);

@@ -50,10 +50,10 @@ export default {
 
         <div class="flex flex-col w-[20%] gap-10 h-full justify-center items-end">
           <ButtonSvg variant="win" class="max-w-full">
-            <button class="w-full h-full cursor-pointer">Rejouer</button>
+            <button class="w-full h-full cursor-pointer" @click="$emit('start-game')">Rejouer</button>
           </ButtonSvg>
           <ButtonSvg variant="win" class="max-w-full">
-            <button class="w-full h-full cursor-pointer">Accueil</button>
+            <button class="w-full h-full cursor-pointer" @click="$emit('back-home')">Accueil</button>
           </ButtonSvg>
         </div>
       </div>
