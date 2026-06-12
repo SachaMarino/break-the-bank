@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       wireCount: 6,
-      bombWires: 1,
+      bombWires: 2,
       wires: [],
       gameOver: false,
       message: "",
@@ -51,7 +51,7 @@ export default {
 
       if (this.wires[index].type === "bomb") {
         this.message = " ❌Perdu! Mauvais fil coupé!";
-        this.$emit('fail');
+        this.$emit("fail");
         return;
       }
 
@@ -59,23 +59,22 @@ export default {
 
       if (this.cutSafeWires === this.wireCount - this.bombWires) {
         this.message = "✅Bombe désamorcée !";
-        this.$emit('success');
+        this.$emit("success");
       }
     },
     restartGame() {
       this.initGame();
     },
     wireClass(wire) {
-      if (wire.type === "bomb"){
-        return "hover:bg-(--error) hover:shadow-[0_0_10px_red] cursor-default"
-      }else{
-        if (wire.cut){
+      if (wire.type === "bomb") {
+        return "hover:bg-(--error) hover:shadow-[0_0_10px_red] cursor-default";
+      } else {
+        if (wire.cut) {
           return "bg-green-400 shadow-[0_0_10px_#00ff00]";
-        }else{
-          return "hover:bg-green-400 hover:shadow-[0_0_10px_#00ff00] cursor-default"
+        } else {
+          return "hover:bg-green-400 hover:shadow-[0_0_10px_#00ff00] cursor-default";
         }
       }
-      
     },
   },
 };
