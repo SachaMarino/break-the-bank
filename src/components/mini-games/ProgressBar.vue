@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      progress : 0,
+      progress: 0,
       isComplete: false,
       intervalId: null,
       speed: 1,
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     startFilling() {
-      if (this.intervalId || this.isComplete) return
+      if (this.intervalId || this.isComplete) return;
 
       this.intervalId = setInterval(() => {
         if (this.progress < 100) {
@@ -28,14 +28,14 @@ export default {
           this.isComplete = true;
           this.stopFilling();
         }
-      }, 30)
+      }, 30);
     },
-    stopFilling(){
-      if (this.isComplete){
+    stopFilling() {
+      if (this.isComplete) {
         this.$emit("success");
       }
-      
-      clearInterval(this.intervalId)
+
+      clearInterval(this.intervalId);
       this.intervalId = null;
     },
   },
@@ -45,17 +45,19 @@ export default {
 <template>
   <div class="w-full max-w-100 flex flex-col gap-15">
     <h1 class="text-(--title) text-3xl">
-      Remplire la barre en maintenant le boutton
+      Remplir la barre en maintenant le boutton
     </h1>
-    
+
     <div class="flex flex-col gap-3">
-      <div class="w-full h-8 bg-(--secondary) border-2 border-(--primary) overflow-hidden mb-4">
-        <div 
+      <div
+        class="w-full h-8 bg-(--secondary) border-2 border-(--primary) overflow-hidden mb-4"
+      >
+        <div
           class="h-full bg-(--primary) transition-all duration-100 ease-linear"
           :style="{ width: `${progress}%` }"
         ></div>
       </div>
-      
+
       <ButtonSvg>
         <button
           @mousedown="startFilling()"
