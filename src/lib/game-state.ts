@@ -23,7 +23,7 @@ const availableMiniGames: MiniGameId[] = [
 ];
 
 const defaultLives = 3;
-const defaultLevels = 3;
+const defaultLevels = 5;
 
 export type GameState = {
   lives: number;
