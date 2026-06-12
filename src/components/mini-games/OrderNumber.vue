@@ -15,14 +15,12 @@ export default {
       currentNumber: 1,
       shuffleNumbers: [],
       foundNumbers: [],
-      gameWon: false,
     };
   },
   methods: {
     startGame() {
       this.currentNumber = 1;
       this.foundNumbers = [];
-      this.gameWon = false;
 
       const numbers = [];
 
@@ -35,13 +33,11 @@ export default {
       if (number === this.currentNumber) {
         this.foundNumbers.push(number);
         if (this.currentNumber === this.maxNumber) {
-          this.gameWon = true;
           this.$emit("success");
         } else {
           this.currentNumber++;
         }
       } else {
-        alert("vie perdu, jeux suivant");
         this.$emit("fail");
       }
     },
@@ -67,13 +63,6 @@ export default {
       >
         {{ foundNumbers.includes(number) ? "✓" : number }}
       </button>
-
-      <div v-if="gameWon">
-        <h2>Manche suivante</h2>
-        <ButtonSvg>
-          <button @click="startGame" class="py-3">Rejouer</button>
-        </ButtonSvg>
-      </div>
     </div>
   </div>
 </template>

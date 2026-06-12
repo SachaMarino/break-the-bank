@@ -3,10 +3,10 @@ export default {
     data() {
         return {
             wires: {
-                red: false,
-                blue: false,
-                green: false,
-                yellow: false,
+                crimson: false,
+                deepskyblue: false,
+                forestgreen: false,
+                gold: false,
             },
             shuffledWires: [],
             wireLines: {},
@@ -100,7 +100,7 @@ export default {
 
 <template>
     <div
-        class="container flex items-center justify-center p-8 flex-col gap-4"
+        class="container flex items-center flex-col gap-20 h-[80%]"
         @mousemove="moveDrag"
         @mouseup="stopDrag"
     >
@@ -118,7 +118,7 @@ export default {
                 :y2="line.end.y"
                 :stroke="color"
                 stroke-width="6"
-                stroke-linecap="round"
+                stroke-linecap="square"
             />
             <line
                 v-if="draggingColor && start && mouse"
@@ -128,17 +128,17 @@ export default {
                 :y2="mouse.y"
                 :stroke="draggingColor"
                 stroke-width="6"
-                stroke-linecap="round"
+                stroke-linecap="square"
             />
         </svg>
 
-        <div class="text-2xl font-bold">Wire Game</div>
+        <div class="text-(--title) text-3xl">Reliez les bouttons de meme couleur</div>
 
         <div class="grid grid-cols-2 gap-x-24">
             <div class="grid gap-y-8">
                 <div v-for="(dragState, color) in wires" :key="`left-${color}`">
                     <div
-                        class="size-8 cursor-pointer rounded-full border-2 border-white shadow-md"
+                        class="size-8 cursor-pointer border-2 border-white shadow-md"
                         :style="{ backgroundColor: color }"
                         @mousedown="startDrag(color, 'left', $event)"
                         @mouseup.stop="connectWire(color, 'left', $event)"
@@ -149,7 +149,7 @@ export default {
             <div class="grid gap-y-8">
                 <div v-for="color in shuffledWires" :key="`right-${color}`">
                     <div
-                        class="size-8 cursor-pointer rounded-full border-2 border-white shadow-md"
+                        class="size-8 cursor-pointer border-2 border-white shadow-md"
                         :style="{ backgroundColor: color }"
                         @mousedown="startDrag(color, 'right', $event)"
                         @mouseup.stop="connectWire(color, 'right', $event)"

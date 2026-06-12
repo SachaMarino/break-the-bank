@@ -33,15 +33,13 @@ export default {
 };
 </script>
 <template>
-  <div class="flex flex-col gap-5 items-center mt-20 text-(--text-color)">
+  <div class="flex flex-col gap-5 items-center text-(--text-color) pt-10">
     <h1 class="text-(--title) text-3xl">Cliquez vite!</h1>
-    <!-- Carré cliquable -->
     <div
       class="w-20 h-20 border-4 border-(--primary) hover:bg-(--primary) cursor-pointer transition-colors duration-200"
       @click="increment"
     ></div>
 
-    <!-- Compteur -->
     <div class="text-3xl">
       <span>{{ clics }} / 25</span>
     </div>

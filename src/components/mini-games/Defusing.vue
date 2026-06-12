@@ -51,7 +51,7 @@ export default {
 
       if (this.wires[index].type === "bomb") {
         this.message = " ❌Perdu! Mauvais fil coupé!";
-        this.gameOver = true;
+        this.$emit('fail');
         return;
       }
 
@@ -59,34 +59,40 @@ export default {
 
       if (this.cutSafeWires === this.wireCount - this.bombWires) {
         this.message = "✅Bombe désamorcée !";
-        this.gameOver = true;
+        this.$emit('success');
       }
     },
     restartGame() {
       this.initGame();
     },
     wireClass(wire) {
-      if (!wire.cut) return "bg-gray-500 hover:bg-gray-400";
-      return wire.type === "bomb"
-        ? "bg-(--error) shadow-[0_0_10px_red] cursor-default"
-        : "bg-green-400 shadow-[0_0_10px_#00ff00] cursor-default";
+      if (wire.type === "bomb"){
+        return "hover:bg-(--error) hover:shadow-[0_0_10px_red] cursor-default"
+      }else{
+        if (wire.cut){
+          return "bg-green-400 shadow-[0_0_10px_#00ff00]";
+        }else{
+          return "hover:bg-green-400 hover:shadow-[0_0_10px_#00ff00] cursor-default"
+        }
+      }
+      
     },
   },
 };
 </script>
 <template>
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center">
     <h1 class="text-(--title) text-3xl">
       Coupe les bons fils pour désamorcer la bombe !
     </h1>
 
-    <div class="mt-8 w-80 border-2 border-(--primary) rounded-xl p-6 m-5">
-      <div class="flex flex-col items-center gap-4">
+    <div class="mt-8 w-100 border-2 border-(--primary) rounded-xl p-6 m-5">
+      <div class="flex flex-col items-center gap-6">
         <div
           v-for="(wire, index) in wires"
           :key="index"
           @click="cutWire(index)"
-          class="h-3 w-full rounded-full transition-all duration-300 cursor-pointer"
+          class="h-5 w-full rounded-full transition-all duration-300 cursor-pointer bg-gray-500"
           :class="wireClass(wire)"
         ></div>
       </div>
@@ -99,8 +105,5 @@ export default {
         {{ message }}
       </p>
     </div>
-    <ButtonSvg>
-      <button @click="restartGame" class="py-3">Rejouer</button>
-    </ButtonSvg>
   </div>
 </template>

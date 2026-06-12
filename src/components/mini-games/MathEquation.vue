@@ -48,7 +48,6 @@ export default {
 };
 </script>
 <template>
-  <BorderMainSvg>
     <div class="w-full max-w-100 flex flex-col gap-5">
       <h1 class="text-(--title) text-3xl">
         Résoudre ce probleme de math
@@ -66,7 +65,6 @@ export default {
         </button>
       </div>
     </div>
-  </BorderMainSvg>
 </template>
 
 <style></style>
