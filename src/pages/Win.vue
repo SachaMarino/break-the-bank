@@ -21,9 +21,9 @@ export default {
 <template>
   <BorderMainSvg variant="win" class="background-success flex">
 
-    <div class="flex flex-col gap-5 w-full h-full justify-between">
+    <div class="flex flex-col gap-5 w-full h-full justify-between mb-15">
 
-      <div class="flex w-full  h-[20%] justify-between items-center p-20">
+      <div class="flex w-full  h-[20%] justify-between items-center ">
         <div class="flex gap-5 justify-start items-center">
           <MoneyBagSvg/>
           <h1 class="text-(--success) text-[clamp(3rem,3vw,2.5rem)] self-center">
@@ -33,7 +33,7 @@ export default {
         <PoliceLight variant="win"/>
       </div>
       
-      <div class="flex w-full gap-5 h-[60%] justify-evenly mb-20 p-5">
+      <div class="flex w-full gap-5 h-full justify-evenly  p-5">
         <div
           class="flex gap-5 w-[30%] h-full justify-center items-center"
         >
