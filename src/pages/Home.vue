@@ -16,7 +16,7 @@ export default {
 
 <template>
   <BorderMainSvg variant="home">
-    <div class="flex flex-col gap-5 w-full h-full justify-between">
+    <div class="flex flex-col gap-5 w-full h-full justify-between pb-9.5">
       <h1 class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start">
         Break the bank
       </h1>
