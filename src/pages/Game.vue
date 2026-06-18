@@ -7,6 +7,7 @@ import {
     goToNextLevel,
 } from "../lib/game-state";
 import OrderNumber from "../components/mini-games/OrderNumber.vue";
+import Temperature from "../components/mini-games/Temperature.vue";
 import PlugWire from "../components/mini-games/PlugWire.vue";
 import GameBar from "../components/GameBar.vue";
 import Click from "@/components/mini-games/Click.vue";
@@ -19,17 +20,18 @@ import ButtonSvg from "@/components/svg/borderDesign/Button.svg.vue";
 const miniGameComponents = {
     "order-number": OrderNumber,
     "plug-wire": PlugWire,
-    "click": Click,
-    "defusing": Defusing,
+    click: Click,
+    defusing: Defusing,
     "math-equation": MathEquation,
     "progress-bar": ProgressBar,
+    temperature: Temperature,
 };
 
 export default {
     components: {
         GameBar,
         BorderMainSvg,
-        ButtonSvg
+        ButtonSvg,
     },
     emits: ["game-over"],
     data() {
@@ -43,7 +45,10 @@ export default {
         "state.status": {
             immediate: true,
             handler(newStatus) {
-                if (newStatus === "miniGameWon" || newStatus === "miniGameLost") {
+                if (
+                    newStatus === "miniGameWon" ||
+                    newStatus === "miniGameLost"
+                ) {
                     this.startAutoAdvance();
                 }
             },
@@ -112,47 +117,61 @@ export default {
 
 <template>
     <BorderMainSvg class="background-success flex">
-
-    <div class="flex flex-col justify-between w-full h-full items-center">
-        <GameBar
-        :lives="state.lives"
-        :status="state.status"
-        :score="state.completedLevels"
-        :key="state.level"
-        @timeout="handleFail"
-        />
-        <component
-            v-if="state.status === 'playing'"
-            :is="currentMiniGame"
-            @success="handleSuccess"
-            @fail="handleFail"
-            class="h-[80%]"
-        />
-        <div v-if="state.status === 'miniGameWon'" class="flex flex-col gap-10 w-70 h-[80%] pt-20">
-            <div class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full">Gagné</div>
-            <div class="w-full">
-                <div class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)">
+        <div class="flex flex-col justify-between w-full h-full items-center">
+            <GameBar
+                :lives="state.lives"
+                :status="state.status"
+                :score="state.completedLevels"
+                :key="state.level"
+                @timeout="handleFail"
+            />
+            <component
+                v-if="state.status === 'playing'"
+                :is="currentMiniGame"
+                @success="handleSuccess"
+                @fail="handleFail"
+                class="h-[80%]"
+            />
+            <div
+                v-if="state.status === 'miniGameWon'"
+                class="flex flex-col gap-10 w-70 h-[80%] pt-20"
+            >
+                <div
+                    class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full"
+                >
+                    Gagné
+                </div>
+                <div class="w-full">
                     <div
-                        class="h-full bg-(--primary) transition-all duration-100 ease-linear"
-                        :style="{ width: `${autoAdvanceProgress}%` }"
-                    ></div>
+                        class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)"
+                    >
+                        <div
+                            class="h-full bg-(--primary) transition-all duration-100 ease-linear"
+                            :style="{ width: `${autoAdvanceProgress}%` }"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+            <div
+                v-if="state.status === 'miniGameLost'"
+                class="flex flex-col gap-10 w-70 h-[80%] pt-20"
+            >
+                <div
+                    class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full"
+                >
+                    Perdu
+                </div>
+                <div class="w-full">
+                    <div
+                        class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)"
+                    >
+                        <div
+                            class="h-full bg-(--primary) transition-all duration-100 ease-linear"
+                            :style="{ width: `${autoAdvanceProgress}%` }"
+                        ></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div v-if="state.status === 'miniGameLost'" class="flex flex-col gap-10 w-70 h-[80%] pt-20">
-            <div class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full">Perdu</div>
-            <div class="w-full">
-                <div class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)">
-                    <div
-                        class="h-full bg-(--primary) transition-all duration-100 ease-linear"
-                        :style="{ width: `${autoAdvanceProgress}%` }"
-                    ></div>
-                </div>
-            </div>
-
-            
-        </div>
-      
-    </div>
-  </BorderMainSvg>
+    </BorderMainSvg>
 </template>
