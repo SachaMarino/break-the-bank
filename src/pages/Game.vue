@@ -26,6 +26,7 @@ const miniGameComponents = {
   "math-equation": MathEquation,
   "guess-time": GuessTime,
   "progress-bar": ProgressBar,
+  temperature: Temperature,
 };
 
 export default {
