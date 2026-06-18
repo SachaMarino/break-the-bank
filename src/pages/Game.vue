@@ -1,10 +1,10 @@
 <script>
 import {
-    createGameState,
-    getCurrentMiniGame,
-    loseLevel,
-    winLevel,
-    goToNextLevel,
+  createGameState,
+  getCurrentMiniGame,
+  loseLevel,
+  winLevel,
+  goToNextLevel,
 } from "../lib/game-state";
 import OrderNumber from "../components/mini-games/OrderNumber.vue";
 import PlugWire from "../components/mini-games/PlugWire.vue";
@@ -15,144 +15,160 @@ import MathEquation from "@/components/mini-games/MathEquation.vue";
 import ProgressBar from "@/components/mini-games/ProgressBar.vue";
 import BorderMainSvg from "@/components/svg/borderDesign/BorderMain.svg.vue";
 import ButtonSvg from "@/components/svg/borderDesign/Button.svg.vue";
+import GuessTime from "@/components/mini-games/GuessTime.vue";
 
 const miniGameComponents = {
-    "order-number": OrderNumber,
-    "plug-wire": PlugWire,
-    "click": Click,
-    "defusing": Defusing,
-    "math-equation": MathEquation,
-    "progress-bar": ProgressBar,
+  "order-number": OrderNumber,
+  "plug-wire": PlugWire,
+  click: Click,
+  defusing: Defusing,
+  "math-equation": MathEquation,
+  "guess-time": GuessTime,
+  "progress-bar": ProgressBar,
 };
 
 export default {
-    components: {
-        GameBar,
-        BorderMainSvg,
-        ButtonSvg
+  components: {
+    GameBar,
+    BorderMainSvg,
+    ButtonSvg,
+  },
+  emits: ["game-over"],
+  data() {
+    return {
+      state: createGameState(),
+      autoAdvanceProgress: 0,
+      autoAdvanceTimer: null,
+    };
+  },
+  watch: {
+    "state.status": {
+      immediate: true,
+      handler(newStatus) {
+        if (newStatus === "miniGameWon" || newStatus === "miniGameLost") {
+          this.startAutoAdvance();
+        }
+      },
     },
-    emits: ["game-over"],
-    data() {
-        return {
-            state: createGameState(),
-            autoAdvanceProgress: 0,
-            autoAdvanceTimer: null,
-        };
-    },
-    watch: {
-        "state.status": {
-            immediate: true,
-            handler(newStatus) {
-                if (newStatus === "miniGameWon" || newStatus === "miniGameLost") {
-                    this.startAutoAdvance();
-                }
-            },
-        },
-    },
-    computed: {
-        currentMiniGame() {
-            const currentMiniGameId = getCurrentMiniGame(this.state);
+  },
+  computed: {
+    currentMiniGame() {
+      const currentMiniGameId = getCurrentMiniGame(this.state);
 
-            if (!currentMiniGameId) {
-                return null;
-            }
+      if (!currentMiniGameId) {
+        return null;
+      }
 
-            return miniGameComponents[currentMiniGameId];
-        },
+      return miniGameComponents[currentMiniGameId];
     },
-    methods: {
-        clearAutoAdvanceTimer() {
-            if (this.autoAdvanceTimer) {
-                clearInterval(this.autoAdvanceTimer);
-                this.autoAdvanceTimer = null;
-            }
-        },
-        startAutoAdvance() {
-            this.clearAutoAdvanceTimer();
-            this.autoAdvanceProgress = 0;
-
-            const intervalMs = 50;
-            const durationMs = 1000;
-            const step = 100 / (durationMs / intervalMs);
-
-            this.autoAdvanceTimer = setInterval(() => {
-                this.autoAdvanceProgress = Math.min(
-                    this.autoAdvanceProgress + step,
-                    100,
-                );
-
-                if (this.autoAdvanceProgress >= 100) {
-                    this.clearAutoAdvanceTimer();
-                    this.handleNextLevel();
-                }
-            }, intervalMs);
-        },
-        handleSuccess() {
-            winLevel(this.state);
-            if (this.state.status === "win") {
-                this.$emit("game-won");
-            }
-        },
-        handleFail() {
-            loseLevel(this.state);
-            if (this.state.status === "lose") {
-                this.$emit("game-over");
-            }
-        },
-        handleNextLevel() {
-            this.clearAutoAdvanceTimer();
-            goToNextLevel(this.state);
-        },
+  },
+  methods: {
+    clearAutoAdvanceTimer() {
+      if (this.autoAdvanceTimer) {
+        clearInterval(this.autoAdvanceTimer);
+        this.autoAdvanceTimer = null;
+      }
     },
-    beforeUnmount() {
-        this.clearAutoAdvanceTimer();
+    startAutoAdvance() {
+      this.clearAutoAdvanceTimer();
+      this.autoAdvanceProgress = 0;
+
+      const intervalMs = 50;
+      const durationMs = 1000;
+      const step = 100 / (durationMs / intervalMs);
+
+      this.autoAdvanceTimer = setInterval(() => {
+        this.autoAdvanceProgress = Math.min(
+          this.autoAdvanceProgress + step,
+          100,
+        );
+
+        if (this.autoAdvanceProgress >= 100) {
+          this.clearAutoAdvanceTimer();
+          this.handleNextLevel();
+        }
+      }, intervalMs);
     },
+    handleSuccess() {
+      winLevel(this.state);
+      if (this.state.status === "win") {
+        this.$emit("game-won");
+      }
+    },
+    handleFail() {
+      loseLevel(this.state);
+      if (this.state.status === "lose") {
+        this.$emit("game-over");
+      }
+    },
+    handleNextLevel() {
+      this.clearAutoAdvanceTimer();
+      goToNextLevel(this.state);
+    },
+  },
+  beforeUnmount() {
+    this.clearAutoAdvanceTimer();
+  },
 };
 </script>
 
 <template>
-    <BorderMainSvg class="background-success flex">
-
+  <BorderMainSvg class="background-success flex">
     <div class="flex flex-col justify-between w-full h-full items-center">
-        <GameBar
+      <GameBar
         :lives="state.lives"
         :status="state.status"
         :score="state.completedLevels"
         :key="state.level"
         @timeout="handleFail"
-        />
-        <component
-            v-if="state.status === 'playing'"
-            :is="currentMiniGame"
-            @success="handleSuccess"
-            @fail="handleFail"
-            class="h-[80%]"
-        />
-        <div v-if="state.status === 'miniGameWon'" class="flex flex-col gap-10 w-70 h-[80%] pt-20">
-            <div class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full">Gagné</div>
-            <div class="w-full">
-                <div class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)">
-                    <div
-                        class="h-full bg-(--primary) transition-all duration-100 ease-linear"
-                        :style="{ width: `${autoAdvanceProgress}%` }"
-                    ></div>
-                </div>
-            </div>
+      />
+      <component
+        v-if="state.status === 'playing'"
+        :is="currentMiniGame"
+        @success="handleSuccess"
+        @fail="handleFail"
+        class="h-[80%]"
+      />
+      <div
+        v-if="state.status === 'miniGameWon'"
+        class="flex flex-col gap-10 w-70 h-[80%] pt-20"
+      >
+        <div
+          class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full"
+        >
+          Gagné
         </div>
-        <div v-if="state.status === 'miniGameLost'" class="flex flex-col gap-10 w-70 h-[80%] pt-20">
-            <div class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full">Perdu</div>
-            <div class="w-full">
-                <div class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)">
-                    <div
-                        class="h-full bg-(--primary) transition-all duration-100 ease-linear"
-                        :style="{ width: `${autoAdvanceProgress}%` }"
-                    ></div>
-                </div>
-            </div>
-
-            
+        <div class="w-full">
+          <div
+            class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)"
+          >
+            <div
+              class="h-full bg-(--primary) transition-all duration-100 ease-linear"
+              :style="{ width: `${autoAdvanceProgress}%` }"
+            ></div>
+          </div>
         </div>
-      
+      </div>
+      <div
+        v-if="state.status === 'miniGameLost'"
+        class="flex flex-col gap-10 w-70 h-[80%] pt-20"
+      >
+        <div
+          class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full"
+        >
+          Perdu
+        </div>
+        <div class="w-full">
+          <div
+            class="h-2 w-full overflow-hidden rounded-full border border-(--primary) bg-(--secondary)"
+          >
+            <div
+              class="h-full bg-(--primary) transition-all duration-100 ease-linear"
+              :style="{ width: `${autoAdvanceProgress}%` }"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   </BorderMainSvg>
 </template>

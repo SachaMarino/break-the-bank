@@ -11,6 +11,7 @@ export type MiniGameId =
   | "click"
   | "defusing"
   | "math-equation"
+  | "guess-time"
   | "progress-bar";
 
 const availableMiniGames: MiniGameId[] = [
@@ -19,6 +20,7 @@ const availableMiniGames: MiniGameId[] = [
   "click",
   "defusing",
   "math-equation",
+  "guess-time",
   "progress-bar",
 ];
 
