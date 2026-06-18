@@ -7,6 +7,7 @@ import {
   goToNextLevel,
 } from "../lib/game-state";
 import OrderNumber from "../components/mini-games/OrderNumber.vue";
+import Temperature from "../components/mini-games/Temperature.vue";
 import PlugWire from "../components/mini-games/PlugWire.vue";
 import GameBar from "../components/GameBar.vue";
 import Click from "@/components/mini-games/Click.vue";

@@ -12,7 +12,8 @@ export type MiniGameId =
   | "defusing"
   | "math-equation"
   | "guess-time"
-  | "progress-bar";
+  | "progress-bar"
+  | "temperature";
 
 const availableMiniGames: MiniGameId[] = [
   "order-number",
@@ -22,6 +23,7 @@ const availableMiniGames: MiniGameId[] = [
   "math-equation",
   "guess-time",
   "progress-bar",
+  "temperature",
 ];
 
 const defaultLives = 3;
