@@ -11,6 +11,17 @@ export default {
         BorderContentSvg,
         TreasureSvg,
     },
+    data(){
+      return{
+        instruction:[
+          "Déverrouillez le coffre-fort en terminant tous les mini-jeux.",
+          "Vous avez un temps limité pour chaque défi.",
+          "Vous disposez de 3 vies. Si le temps est écoulé avant que vous ayez réussi, vous perdez une vie.",
+          "Si vous perdez vos 3 vies, vous avez perdu et la police intervient.",
+          "Detail pour mini-jeux horloge: quand l'heure est entre 01 - 09 cliquer sur un chiffre, pas besoin d'un 0 avant, apres cliquer sur enter en forme de → pour passer au minute",
+        ]
+      }
+    }
 };
 </script>
 
@@ -23,33 +34,22 @@ export default {
       <div
         class="flex flex-col md:flex-row md:justify-between gap-5 w-full h-full"
       >
-        <BorderContentSvg variant="home" class="w-[20%] flex flex-col self-start">
+        <BorderContentSvg variant="home" class=" flex flex-col self-start ">
           <h1 class="self-start my-3 text-2xl">Bienvenue</h1>
           <ul
-            class="self-start text-start flex flex-col gap-2 text-sm md:text-lg pr-4 lg:pr-5"
+            class="self-start text-start flex flex-col gap-2 text-sm md:text-lg pr-4 lg:pr-8"
           >
-            <li>
-              - Déverrouillez le coffre-fort en terminant tous les mini-jeux.
-            </li>
-            <li>- Vous avez un temps limité pour chaque défi.</li>
-            <li>
-              - Vous disposez de 3 vies. Si le temps est écoulé avant que vous
-              ayez réussi, vous perdez une vie.
-            </li>
-            <li>
-              - Si vous perdez vos 3 vies, vous avez perdu et la police
-              intervient.
-            </li>
+          <li v-for="item in instruction" :key="item">-{{ item }} </li>
           </ul>
         </BorderContentSvg>
 
         <div
-          class="flex w-[60%] flex-col gap-5 h-full justify-center items-center"
+          class="flex md:w-[60%] flex-row md:flex-col gap-5 h-full justify-center items-center"
         >
           <TreasureSvg variant="home" />
-          <ButtonSvg variant="home" class="max-w-50">
+          <ButtonSvg variant="home" class="max-w-40 lg:max-w-50">
             <button
-                class="w-full h-full cursor-pointer"
+                class="w-full h-full cursor-pointer text-sm md:text-xl"
                 @click="$emit('start-game')"
             >
                 Commencez

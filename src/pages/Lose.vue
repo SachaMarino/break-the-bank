@@ -33,15 +33,15 @@ export default {
         <PoliceLight variant="loose"/>
       </div>
       
-      <div class="flex w-full gap-5 h-full justify-evenly  p-5">
+      <div class="flex flex-wrap w-full gap-5 h-full justify-evenly  p-5">
         <div
           class="flex gap-5 w-[30%] h-full justify-center items-center"
         >
           <BorderContentSvg variant="loose">
-            <h1 class="text-(--error) text-[clamp(3rem,3vw,2.5rem)] w-full">A̵̡̧̨̯͎̼̜̪̗̬̺͈͎͍͍͆̆̌̆̽̂̍̄̃̐͠ç̸̛̛̣̯̯͔͚̞͆̂́̑̍̑̄̊̈́̈́̽͠c̷̛̙̥̱͐́́̐ë̷̥̠̥͚̟̼͇̥̭̲́ͅͅś̴͚͖̲̯̠͚̹̥͉͕̣̮͖̬s̶̡̱̭͓̟̻͕̦̼̟̖̙̺̩̄̂̓͊͆̕ͅ ̵̡͊͋̔͒͋̒̈̈̈́̃́̕͠D̸̛͚̘̼͙̖̑͒̓̆́̏́̔̔͘͝͝ȩ̶̨̬̱̱̣͓̤͙̰͍̯͔̮̌̔͝n̶̢̺̣̥̹̻̝͈̬̟̖͔͙͉͙̬͑͊̉̆̾̆ĩ̵̛̠̳͋e̴̛͗̒̄̇̈́̃̽͗̑̔͋͘͘͜d̴̹͔̻̯͙̘͚̊̏̇́͛́̆̿̚̚ͅ</h1>
+            <h1 class="text-(--error) text-4xl w-full m-auto">A̵̡̧̨̯͎̼̜̪̗̬̺͈͎͍͍͆̆̌̆̽̂̍̄̃̐͠ç̸̛̛̣̯̯͔͚̞͆̂́̑̍̑̄̊̈́̈́̽͠c̷̛̙̥̱͐́́̐ë̷̥̠̥͚̟̼͇̥̭̲́ͅͅś̴͚͖̲̯̠͚̹̥͉͕̣̮͖̬s̶̡̱̭͓̟̻͕̦̼̟̖̙̺̩̄̂̓͊͆̕ͅ ̵̡͊͋̔͒͋̒̈̈̈́̃́̕͠D̸̛͚̘̼͙̖̑͒̓̆́̏́̔̔͘͝͝ȩ̶̨̬̱̱̣͓̤͙̰͍̯͔̮̌̔͝n̶̢̺̣̥̹̻̝͈̬̟̖͔͙͉͙̬͑͊̉̆̾̆ĩ̵̛̠̳͋e̴̛͗̒̄̇̈́̃̽͗̑̔͋͘͘͜d̴̹͔̻̯͙̘͚̊̏̇́͛́̆̿̚̚ͅ</h1>
           </BorderContentSvg>
         </div>
-
+        
         <div
           class="flex gap-5 w-[35%] h-full justify-center items-center"
         >
