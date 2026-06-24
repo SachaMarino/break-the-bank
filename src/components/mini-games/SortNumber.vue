@@ -8,7 +8,7 @@
         {{ direction === "asc" ? " → Croissant" : "← Décroissant" }}
       </div>
 
-      <div class="flex justify-center my-2 gap-2 w-full">
+      <div class="flex justify-center my-2 gap-2 w-full select-none">
         <div
           v-for="(cell, i) in line"
           :key="i"

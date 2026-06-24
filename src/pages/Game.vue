@@ -140,7 +140,7 @@ export default {
         class="flex flex-col gap-10 w-70 h-[80%] pt-20"
       >
         <div
-          class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full"
+          class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full select-none"
         >
           Gagné
         </div>
@@ -160,7 +160,7 @@ export default {
         class="flex flex-col gap-10 w-70 h-[80%] pt-20"
       >
         <div
-          class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full"
+          class="text-(--title) text-[clamp(2rem,3vw,2.5rem)] self-start w-full select-none"
         >
           Perdu
         </div>
