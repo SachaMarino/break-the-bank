@@ -17,6 +17,7 @@ import ProgressBar from "@/components/mini-games/ProgressBar.vue";
 import BorderMainSvg from "@/components/svg/borderDesign/BorderMain.svg.vue";
 import ButtonSvg from "@/components/svg/borderDesign/Button.svg.vue";
 import GuessTime from "@/components/mini-games/GuessTime.vue";
+import SortNumber from "@/components/mini-games/SortNumber.vue";
 
 const miniGameComponents = {
   "order-number": OrderNumber,
@@ -27,6 +28,7 @@ const miniGameComponents = {
   "guess-time": GuessTime,
   "progress-bar": ProgressBar,
   temperature: Temperature,
+  "sort-number": SortNumber,
 };
 
 export default {
