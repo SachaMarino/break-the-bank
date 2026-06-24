@@ -14,7 +14,7 @@ export type MiniGameId =
   | "guess-time"
   | "progress-bar"
   | "temperature"
-  | "swipe-card";
+  | "swipe-card"
   | "sort-number";
 
 const availableMiniGames: MiniGameId[] = [
