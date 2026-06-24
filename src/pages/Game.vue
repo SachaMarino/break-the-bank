@@ -133,7 +133,7 @@ export default {
         :is="currentMiniGame"
         @success="handleSuccess"
         @fail="handleFail"
-        class="h-[80%]"
+        class="flex-1 min-h-0"
       />
       <div
         v-if="state.status === 'miniGameWon'"

@@ -1,6 +1,10 @@
 <template>
-  <div class="flex flex-col gap-3">
-    <h2 class="text-(--title) text-3xl mb-3">Placer dans le bon ordre</h2>
+  <div class="flex flex-col gap-3 w-full max-w-100 pt-[clamp(1.5rem,4vh,3rem)]">
+    <h2
+      class="text-(--title) text-[clamp(1.25rem,4vh,1.875rem)] leading-tight mb-3"
+    >
+      Placer dans le bon ordre
+    </h2>
     <div class="w-full">
       <div
         class="text-(--text-primary) p-2 border-2 border-(--primary) text-xl"

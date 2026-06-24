@@ -23,12 +23,16 @@ export default {
         startDrag(color, side, event) {
             if (this.wires[color]) return;
 
+            if (event.currentTarget.releasePointerCapture) {
+                event.currentTarget.releasePointerCapture(event.pointerId);
+            }
+
             const startPoint = this.getElementCenter(event.currentTarget);
 
             this.draggingColor = color;
             this.draggingSide = side;
             this.start = startPoint;
-            this.mouse = startPoint;
+            this.mouse = { x: event.clientX, y: event.clientY };
         },
 
         moveDrag(event) {
@@ -40,6 +44,26 @@ export default {
             };
         },
 
+        endDrag(event) {
+            if (!this.draggingColor) {
+                this.stopDrag();
+                return;
+            }
+
+            const element = document.elementFromPoint(
+                event.clientX,
+                event.clientY,
+            );
+            const dot = element && element.closest("[data-wire-color]");
+
+            if (!dot) {
+                this.stopDrag();
+                return;
+            }
+
+            this.connectWire(dot.dataset.wireColor, dot.dataset.wireSide, dot);
+        },
+
         stopDrag() {
             this.draggingColor = null;
             this.draggingSide = null;
@@ -47,7 +71,7 @@ export default {
             this.mouse = null;
         },
 
-        connectWire(color, side, event) {
+        connectWire(color, side, element) {
             const isSameColor = this.draggingColor === color;
             const isOppositeSide = this.draggingSide !== side;
 
@@ -59,7 +83,7 @@ export default {
             this.wires[color] = true;
             this.wireLines[color] = {
                 start: this.start,
-                end: this.getElementCenter(event.currentTarget),
+                end: this.getElementCenter(element),
             };
 
             this.checkWin();
@@ -100,9 +124,10 @@ export default {
 
 <template>
     <div
-        class="container flex items-center flex-col gap-20 h-[80%]"
-        @mousemove="moveDrag"
-        @mouseup="stopDrag"
+        class="flex items-center flex-col gap-[clamp(2rem,8vh,5rem)] w-full h-full max-w-100 overflow-hidden pt-[clamp(1.5rem,4vh,3rem)] touch-none select-none"
+        @pointermove="moveDrag"
+        @pointerup="endDrag"
+        @pointercancel="stopDrag"
     >
         <svg
             class="fixed inset-0 pointer-events-none z-50"
@@ -132,27 +157,33 @@ export default {
             />
         </svg>
 
-        <div class="text-(--title) text-3xl">Reliez les bouttons de meme couleur</div>
+        <div
+            class="text-(--title) text-[clamp(1.25rem,4vh,1.875rem)] leading-tight text-center"
+        >
+            Reliez les bouttons de meme couleur
+        </div>
 
-        <div class="grid grid-cols-2 gap-x-24">
-            <div class="grid gap-y-8">
+        <div class="grid grid-cols-2 gap-x-[clamp(4rem,20vw,6rem)]">
+            <div class="grid gap-y-[clamp(1rem,4vh,2rem)]">
                 <div v-for="(dragState, color) in wires" :key="`left-${color}`">
                     <div
-                        class="size-8 cursor-pointer border-2 border-white shadow-md"
+                        class="size-[clamp(1.75rem,8vw,2rem)] cursor-pointer border-2 border-white shadow-md touch-none"
                         :style="{ backgroundColor: color }"
-                        @mousedown="startDrag(color, 'left', $event)"
-                        @mouseup.stop="connectWire(color, 'left', $event)"
+                        :data-wire-color="color"
+                        data-wire-side="left"
+                        @pointerdown="startDrag(color, 'left', $event)"
                     ></div>
                 </div>
             </div>
 
-            <div class="grid gap-y-8">
+            <div class="grid gap-y-[clamp(1rem,4vh,2rem)]">
                 <div v-for="color in shuffledWires" :key="`right-${color}`">
                     <div
-                        class="size-8 cursor-pointer border-2 border-white shadow-md"
+                        class="size-[clamp(1.75rem,8vw,2rem)] cursor-pointer border-2 border-white shadow-md touch-none"
                         :style="{ backgroundColor: color }"
-                        @mousedown="startDrag(color, 'right', $event)"
-                        @mouseup.stop="connectWire(color, 'right', $event)"
+                        :data-wire-color="color"
+                        data-wire-side="right"
+                        @pointerdown="startDrag(color, 'right', $event)"
                     ></div>
                 </div>
             </div>
