@@ -7,8 +7,8 @@ export default {
   },
   data() {
     return {
-      wireCount: 6,
-      bombWires: 2,
+      wireCount: 7,
+      bombWires: 3,
       wires: [],
       gameOver: false,
       message: "",
@@ -85,7 +85,9 @@ export default {
       Coupe les bons fils pour désamorcer la bombe !
     </h1>
 
-    <div class="mt-8 w-100 border-2 border-(--primary) rounded-xl p-6 m-5">
+    <div
+      class="mt-8 w-full max-w-100 border-2 border-(--primary) rounded-xl p-6 m-5"
+    >
       <div class="flex flex-col items-center gap-6">
         <div
           v-for="(wire, index) in wires"
