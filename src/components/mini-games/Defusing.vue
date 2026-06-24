@@ -79,15 +79,21 @@ export default {
       this.initGame();
     },
     wireClass(wire) {
-      if (wire.cut || wire.revealed) {
+      if (wire.cut) {
         return wire.type === "bomb"
-          ? "bg-(--error) shadow-[0_0_10px_red]"
-          : "bg-green-400 shadow-[0_0_10px_#00ff00]";
+          ? "bg-(--error) shadow-[0_0_12px_red]"
+          : "bg-green-400 shadow-[0_0_12px_#00ff00]";
+      }
+
+      if (wire.revealed) {
+        return wire.type === "bomb"
+          ? "border-2 border-(--error) shadow-[0_0_12px_red]"
+          : "border-2 border-green-400 shadow-[0_0_12px_#00ff00]";
       }
 
       return wire.type === "bomb"
-        ? "hover:bg-(--error) hover:shadow-[0_0_10px_red]"
-        : "hover:bg-green-400 hover:shadow-[0_0_10px_#00ff00]";
+        ? "hover:border-2 hover:border-(--error) hover:shadow-[0_0_12px_red]"
+        : "hover:border-2 hover:border-green-400 hover:shadow-[0_0_12px_#00ff00]";
     },
   },
 };
