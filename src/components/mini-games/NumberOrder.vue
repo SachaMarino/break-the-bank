@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-3">
-    <h2 class="text-(--title) text-3xl">Cliquer dans le bon ordre</h2>
+    <h2 class="text-(--title) text-3xl">Placer dans le bon ordre</h2>
     <!-- 🔼🔽 INDICATION HORS GRILLE -->
     <div class="w-full">
       <div class="text-(--text-primary) p-2 border border-(--primary) text-xl">
@@ -19,9 +19,9 @@
       </div>
     </div>
 
-    <!-- <p v-if="won" class="win"> BIEN JOUÉ !</p> -->
+    <p v-if="won" class="win">BIEN JOUÉ !</p>
 
-    <button @click="reset">Rejouer 🔁</button>
+    <button @click="reset">Rejouer</button>
   </div>
 </template>
 <script>
