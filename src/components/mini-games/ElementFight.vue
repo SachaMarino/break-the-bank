@@ -83,7 +83,7 @@ export default {
 </script>
 <template>
   <div>
-    <h1 class="text-(--title) text-2xl md:text-3xl pb-5">
+    <h1 class="text-(--title) text-2xl md:text-3xl leading-tight pb-5">
       Eau / Feu / Glace 🔥💧🧊
     </h1>
 
