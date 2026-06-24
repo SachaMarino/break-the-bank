@@ -15,7 +15,8 @@ export type MiniGameId =
   | "progress-bar"
   | "temperature"
   | "swipe-card"
-  | "sort-number";
+  | "sort-number"
+  | "element-fight";
 
 const availableMiniGames: MiniGameId[] = [
   "order-number",
@@ -28,6 +29,7 @@ const availableMiniGames: MiniGameId[] = [
   "temperature",
   "swipe-card",
   "sort-number",
+  "element-fight",
 ];
 
 const defaultLives = 3;

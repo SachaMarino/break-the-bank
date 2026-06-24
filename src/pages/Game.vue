@@ -19,6 +19,7 @@ import BorderMainSvg from "@/components/svg/borderDesign/BorderMain.svg.vue";
 import ButtonSvg from "@/components/svg/borderDesign/Button.svg.vue";
 import GuessTime from "@/components/mini-games/GuessTime.vue";
 import SortNumber from "@/components/mini-games/SortNumber.vue";
+import ElementFight from "@/components/mini-games/ElementFight.vue";
 
 const miniGameComponents = {
   "order-number": OrderNumber,
@@ -31,6 +32,7 @@ const miniGameComponents = {
   temperature: Temperature,
   "sort-number": SortNumber,
   "swipe-card": SwipeCard,
+  "element-fight": ElementFight,
 };
 
 export default {
