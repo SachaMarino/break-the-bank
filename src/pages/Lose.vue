@@ -21,34 +21,38 @@ export default {
 <template>
   <BorderMainSvg variant="loose" class="background-error flex">
 
-    <div class="flex flex-col gap-5 w-full h-full justify-between mb-15">
+    <div class="flex flex-col gap-5 w-full h-full">
 
-      <div class="flex w-full  h-[20%] justify-between items-center">
-        <div class="flex gap-5 justify-start items-center">
+      <div class="flex w-full h-[20%] justify-between items-center">
+        <div class="flex gap-1 md:gap-5 justify-start items-center">
           <Warning/>
-          <h1 class="text-(--error) text-[clamp(3rem,3vw,2.5rem)] self-center">
+          <h1 class="text-(--error) text-[clamp(2rem,6vw,3rem)] self-center">
             ERROR
           </h1>
         </div>
         <PoliceLight variant="loose"/>
       </div>
       
-      <div class="flex flex-wrap w-full gap-5 h-full justify-evenly  p-5">
+      <div
+        class="flex flex-col md:flex-row w-full gap-5 md:h-full justify-evenly h-[80%] p-5"
+      >
         <div
-          class="flex gap-5 w-[30%] h-full justify-center items-center"
+          class="flex gap-5 w-full md:w-[30%] h-[40%] md:h-full justify-center items-center"
         >
           <BorderContentSvg variant="loose">
-            <h1 class="text-(--error) text-4xl w-full m-auto">A̵̡̧̨̯͎̼̜̪̗̬̺͈͎͍͍͆̆̌̆̽̂̍̄̃̐͠ç̸̛̛̣̯̯͔͚̞͆̂́̑̍̑̄̊̈́̈́̽͠c̷̛̙̥̱͐́́̐ë̷̥̠̥͚̟̼͇̥̭̲́ͅͅś̴͚͖̲̯̠͚̹̥͉͕̣̮͖̬s̶̡̱̭͓̟̻͕̦̼̟̖̙̺̩̄̂̓͊͆̕ͅ ̵̡͊͋̔͒͋̒̈̈̈́̃́̕͠D̸̛͚̘̼͙̖̑͒̓̆́̏́̔̔͘͝͝ȩ̶̨̬̱̱̣͓̤͙̰͍̯͔̮̌̔͝n̶̢̺̣̥̹̻̝͈̬̟̖͔͙͉͙̬͑͊̉̆̾̆ĩ̵̛̠̳͋e̴̛͗̒̄̇̈́̃̽͗̑̔͋͘͘͜d̴̹͔̻̯͙̘͚̊̏̇́͛́̆̿̚̚ͅ</h1>
+            <h1 class="text-(--error) text-3xl md:text-4xl w-full m-auto">A̵̡̧̨̯͎̼̜̪̗̬̺͈͎͍͍͆̆̌̆̽̂̍̄̃̐͠ç̸̛̛̣̯̯͔͚̞͆̂́̑̍̑̄̊̈́̈́̽͠c̷̛̙̥̱͐́́̐ë̷̥̠̥͚̟̼͇̥̭̲́ͅͅś̴͚͖̲̯̠͚̹̥͉͕̣̮͖̬s̶̡̱̭͓̟̻͕̦̼̟̖̙̺̩̄̂̓͊͆̕ͅ ̵̡͊͋̔͒͋̒̈̈̈́̃́̕͠D̸̛͚̘̼͙̖̑͒̓̆́̏́̔̔͘͝͝ȩ̶̨̬̱̱̣͓̤͙̰͍̯͔̮̌̔͝n̶̢̺̣̥̹̻̝͈̬̟̖͔͙͉͙̬͑͊̉̆̾̆ĩ̵̛̠̳͋e̴̛͗̒̄̇̈́̃̽͗̑̔͋͘͘͜d̴̹͔̻̯͙̘͚̊̏̇́͛́̆̿̚̚ͅ</h1>
           </BorderContentSvg>
         </div>
         
         <div
-          class="flex gap-5 w-[35%] h-full justify-center items-center"
+          class="flex gap-5 w-full md:w-[35%] h-40 md:h-full justify-center items-center"
         >
           <TreasureSvg variant="loose" />
         </div>
 
-        <div class="flex flex-col w-[20%] gap-10 h-full justify-center items-end">
+        <div
+          class="flex flex-row md:flex-col w-full md:w-[20%] gap-5 md:gap-10 h-15 md:h-full justify-center items-center md:items-end"
+        >
           <ButtonSvg variant="loose" class="max-w-full">
             <button class="w-full h-full cursor-pointer" @click="$emit('start-game')">Rejouer</button>
           </ButtonSvg>

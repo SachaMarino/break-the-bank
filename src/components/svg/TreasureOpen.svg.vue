@@ -1,6 +1,11 @@
 <template>
   <div class="relative w-full h-full max-w-91 max-h-96">
-    <svg viewBox="0 0 285 335" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 285 335"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute inset-0 w-full h-full pointer-events-none"
+    >
       <rect
         x="1.5"
         y="33.1257"

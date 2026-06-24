@@ -44,7 +44,7 @@ export default {
         </BorderContentSvg>
 
         <div
-          class="flex md:w-[60%] flex-row md:flex-col gap-5 h-full justify-center items-center"
+          class="flex md:w-[60%] flex-row md:flex-col gap-5 h-[65%] md:h-full justify-center items-center"
         >
           <TreasureSvg variant="home" />
           <ButtonSvg variant="home" class="max-w-40 lg:max-w-50">

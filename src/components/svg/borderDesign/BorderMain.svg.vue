@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <template>
-  <div class="relative w-full h-screen overflow-hidden">
+  <div class="relative w-full h-dvh overflow-hidden">
     <svg
       viewBox="0 0 1279 920"
       fill="none"

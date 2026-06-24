@@ -49,7 +49,7 @@ export default {
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1 class="text-4xl font-bold">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">
       {{ formattedTime }}
     </h1>
   </div>
