@@ -58,17 +58,17 @@ export default {
           <ButtonSvg variant="win" class="max-w-full">
             <button
               class="w-full h-full cursor-pointer"
-              @click="$emit('start-game')"
+              @click="$emit('back-home')"
             >
-              Rejouer
+              Accueil
             </button>
           </ButtonSvg>
           <ButtonSvg variant="win" class="max-w-full">
             <button
               class="w-full h-full cursor-pointer"
-              @click="$emit('back-home')"
+              @click="$emit('start-game')"
             >
-              Accueil
+              Rejouer
             </button>
           </ButtonSvg>
         </div>
