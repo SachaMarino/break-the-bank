@@ -137,15 +137,15 @@ export default {
 </script>
 <template>
   <div
-    class="w-full max-w-100 flex flex-col items-center overflow-y-auto pt-[clamp(0.5rem,3vh,1.5rem)] pb-2"
+    class="w-full flex flex-col md:mt-10 items-center overflow-y-auto pt-[clamp(0.5rem,3vh,1.5rem)] pb-2"
   >
     <h1 class="text-(--title) text-2xl md:text-3xl leading-tight">
       Devine l'heure !
     </h1>
     <div
-      class="flex gap-[clamp(0.5rem,2vh,0.75rem)] p-[clamp(0.5rem,2vh,1.25rem)] items-center md:flex-row flex-col"
+      class="flex gap-[clamp(0.5rem,2vh,0.75rem)] md:mt-8 p-[clamp(0.5rem,2vh,1.25rem)] items-center md:flex-row flex-col"
     >
-      <section class="w-[clamp(7rem,26vh,13rem)]">
+      <section class="w-[clamp(7rem,26vh,13rem)] md:w-80">
         <ClockSvg
           :hour-hand="hourHand"
           :minute-hand="minuteHand"
@@ -158,12 +158,12 @@ export default {
         <div
           class="flex flex-wrap gap-2 border border-(--primary) justify-center p-2 rounded-sm"
         >
-          <p>
-            Heure : <strong>{{ guessHour ? pad(guessHour) : "--" }}</strong>
+          <p class="flex gap-1">
+            Heure : <strong class="w-9">{{ guessHour ? pad(guessHour) : "--" }}</strong>
           </p>
-          <p>
+          <p class="flex gap-1">
             Minutes :
-            <strong>{{ guessMinute ? pad(guessMinute) : "--" }}</strong>
+            <strong class="w-9">{{ guessMinute ? pad(guessMinute) : "--" }}</strong>
           </p>
           <!-- pour tester <p v-if="message">{{ message }}</p> -->
         </div>
