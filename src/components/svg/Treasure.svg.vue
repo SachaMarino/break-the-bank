@@ -29,7 +29,7 @@ export default {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       class="absolute inset-0 w-full h-full pointer-events-none"
-      preserveAspectRatio="none"
+      
     >
       <rect
         x="1.5"

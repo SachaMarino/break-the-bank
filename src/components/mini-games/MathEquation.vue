@@ -49,7 +49,7 @@ export default {
 </script>
 <template>
     <div
-        class="w-full h-full max-h-full min-h-0 max-w-100 flex flex-col items-center gap-[clamp(0.4rem,1.6vh,1rem)] overflow-hidden pt-[clamp(1.5rem,4vh,3rem)] pb-3"
+        class="overflow-y-auto w-full h-full max-h-full min-h-0 max-w-100 flex flex-col items-center gap-[clamp(0.4rem,1.6vh,1rem)] overflow-hidden pt-[clamp(1.5rem,4vh,3rem)] pb-3"
     >
         <h1 class="text-(--title) text-[clamp(1.25rem,4vh,1.875rem)] leading-tight">
             Résoudre ce problème de math

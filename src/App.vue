@@ -25,7 +25,7 @@ export default {
     gameWon() {
       this.currentPage = "win";
     },
-    backHome(){
+    backHome() {
       this.currentPage = "home";
     },
   },
@@ -34,7 +34,19 @@ export default {
 
 <template>
   <Home v-if="currentPage === 'home'" @start-game="startGame" />
-  <Game v-else-if="currentPage === 'game'" @game-over="gameOver" @game-won="gameWon"/>
-  <Lose v-else-if="currentPage === 'lose'" @back-home="backHome" @start-game="startGame" />
-  <Win v-else-if="currentPage === 'win'" @back-home="backHome" @start-game="startGame" />
+  <Game
+    v-else-if="currentPage === 'game'"
+    @game-over="gameOver"
+    @game-won="gameWon"
+  />
+  <Lose
+    v-else-if="currentPage === 'lose'"
+    @back-home="backHome"
+    @start-game="startGame"
+  />
+  <Win
+    v-else-if="currentPage === 'win'"
+    @back-home="backHome"
+    @start-game="startGame"
+  />
 </template>

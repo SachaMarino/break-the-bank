@@ -33,7 +33,7 @@ export default {
       />
     </svg>
     <div
-      class="flex flex-col justify-center items-center content-center align-content relative z-10 w-full h-full p-5 md:p-10 text-center m-auto overflow-auto text-(--text-color)"
+      class="flex flex-col justify-start items-center content-center align-content relative z-10 w-full h-full p-5 md:p-10 text-center m-auto overflow-auto text-(--text-color)"
     >
       <slot />
     </div>
