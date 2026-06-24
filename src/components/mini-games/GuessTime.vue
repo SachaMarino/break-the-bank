@@ -136,10 +136,16 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <h1 class="text-(--title) text-2xl md:text-3xl">Devine l'heure !</h1>
-    <div class="flex gap-3 p-5 items-center md:flex-row flex-col">
-      <section class="w-45 md:w-62">
+  <div
+    class="w-full max-w-100 flex flex-col items-center overflow-y-auto pt-[clamp(0.5rem,3vh,1.5rem)] pb-2"
+  >
+    <h1 class="text-(--title) text-2xl md:text-3xl leading-tight">
+      Devine l'heure !
+    </h1>
+    <div
+      class="flex gap-[clamp(0.5rem,2vh,0.75rem)] p-[clamp(0.5rem,2vh,1.25rem)] items-center md:flex-row flex-col"
+    >
+      <section class="w-[clamp(7rem,26vh,13rem)]">
         <ClockSvg
           :hour-hand="hourHand"
           :minute-hand="minuteHand"
@@ -150,7 +156,7 @@ export default {
 
       <section>
         <div
-          class="flex gap-2 border border-(--primary) justify-center p-2 rounded-sm"
+          class="flex flex-wrap gap-2 border border-(--primary) justify-center p-2 rounded-sm"
         >
           <p>
             Heure : <strong>{{ guessHour ? pad(guessHour) : "--" }}</strong>
@@ -163,12 +169,14 @@ export default {
         </div>
 
         <!-- keyboard -->
-        <div class="grid grid-cols-3 justify-center gap-2 my-3.75">
+        <div
+          class="grid grid-cols-3 justify-center gap-2 my-[clamp(0.5rem,2vh,0.9375rem)]"
+        >
           <button
             v-for="key in keyboard"
             :key="key"
             @click="pressKey(key)"
-            class="text-[clamp(1.25rem,3vw,1.875rem)] p-2 cursor-pointer border border-(--primary) hover:bg-(--primary) hover:text-black transition-all duration-100"
+            class="flex items-center justify-center h-[clamp(2.25rem,5.5vh,3.25rem)] text-[clamp(1.125rem,4vh,1.875rem)] cursor-pointer border border-(--primary) hover:bg-(--primary) hover:text-black transition-all duration-100"
           >
             {{ key }}
           </button>
@@ -180,6 +188,6 @@ export default {
 
 <style scoped>
 p {
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 3vh, 1.2rem);
 }
 </style>

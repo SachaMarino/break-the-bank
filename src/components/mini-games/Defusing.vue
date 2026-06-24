@@ -32,6 +32,7 @@ export default {
         .map(() => ({
           type: "safe",
           cut: false,
+          revealed: false,
         }));
 
       // red wire random
@@ -43,6 +44,18 @@ export default {
           bombsPlaced++;
         }
       }
+    },
+    handleWire(index, event) {
+      const wire = this.wires[index];
+
+      if (this.gameOver || wire.cut) return;
+
+      if (event.pointerType !== "mouse" && !wire.revealed) {
+        wire.revealed = true;
+        return;
+      }
+
+      this.cutWire(index);
     },
     cutWire(index) {
       if (this.gameOver || this.wires[index].cut) return;
@@ -66,33 +79,37 @@ export default {
       this.initGame();
     },
     wireClass(wire) {
-      if (wire.type === "bomb") {
-        return "hover:bg-(--error) hover:shadow-[0_0_10px_red] cursor-default";
-      } else {
-        if (wire.cut) {
-          return "bg-green-400 shadow-[0_0_10px_#00ff00]";
-        } else {
-          return "hover:bg-green-400 hover:shadow-[0_0_10px_#00ff00] cursor-default";
-        }
+      if (wire.cut || wire.revealed) {
+        return wire.type === "bomb"
+          ? "bg-(--error) shadow-[0_0_10px_red]"
+          : "bg-green-400 shadow-[0_0_10px_#00ff00]";
       }
+
+      return wire.type === "bomb"
+        ? "hover:bg-(--error) hover:shadow-[0_0_10px_red]"
+        : "hover:bg-green-400 hover:shadow-[0_0_10px_#00ff00]";
     },
   },
 };
 </script>
 <template>
-  <div class="flex flex-col items-center">
-    <h1 class="text-(--title) text-3xl">
+  <div
+    class="flex flex-col items-center w-full max-w-100 pt-[clamp(1rem,3vh,2rem)] overflow-hidden"
+  >
+    <h1
+      class="text-(--title) text-[clamp(1.125rem,3.5vh,1.875rem)] leading-tight text-center"
+    >
       Coupe les bons fils pour désamorcer la bombe !
     </h1>
 
     <div
-      class="mt-8 w-full max-w-100 border-2 border-(--primary) rounded-xl p-6 m-5"
+      class="mt-[clamp(1rem,3vh,2rem)] w-full border-2 border-(--primary) rounded-xl p-[clamp(1rem,3vw,1.5rem)] my-[clamp(1rem,3vh,1.25rem)]"
     >
-      <div class="flex flex-col items-center gap-6">
+      <div class="flex flex-col items-center gap-[clamp(0.75rem,2.5vh,1.5rem)]">
         <div
           v-for="(wire, index) in wires"
           :key="index"
-          @click="cutWire(index)"
+          @pointerup="handleWire(index, $event)"
           class="h-5 w-full rounded-full transition-all duration-300 cursor-pointer bg-gray-500"
           :class="wireClass(wire)"
         ></div>

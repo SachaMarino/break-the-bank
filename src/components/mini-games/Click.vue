@@ -33,14 +33,18 @@ export default {
 };
 </script>
 <template>
-  <div class="flex flex-col gap-5 items-center text-(--text-color) pt-10">
-    <h1 class="text-(--title) text-3xl">Cliquez vite!</h1>
+  <div
+    class="flex flex-col gap-[clamp(1rem,4vh,1.25rem)] items-center text-(--text-color) pt-[clamp(1.5rem,4vh,3rem)]"
+  >
+    <h1 class="text-(--title) text-[clamp(1.5rem,5vh,1.875rem)] leading-tight">
+      Cliquez vite!
+    </h1>
     <div
-      class="w-20 h-20 border-4 border-(--primary) hover:bg-(--primary) cursor-pointer transition-colors duration-200"
+      class="size-[clamp(4rem,16vh,5rem)] border-4 border-(--primary) hover:bg-(--primary) cursor-pointer transition-colors duration-200"
       @click="increment"
     ></div>
 
-    <div class="text-3xl">
+    <div class="text-[clamp(1.5rem,5vh,1.875rem)]">
       <span>{{ clics }} / 25</span>
     </div>
   </div>

@@ -43,8 +43,10 @@ export default {
 </script>
 
 <template>
-  <div class="w-full max-w-100 flex flex-col gap-15">
-    <h1 class="text-(--title) text-3xl">
+  <div
+    class="w-full max-w-100 flex flex-col gap-[clamp(1.5rem,6vh,3.75rem)] pt-[clamp(1.5rem,4vh,3rem)]"
+  >
+    <h1 class="text-(--title) text-[clamp(1.25rem,4vh,1.875rem)] leading-tight">
       Remplir la barre en maintenant le boutton
     </h1>
 
@@ -65,7 +67,7 @@ export default {
           @mouseleave="stopFilling()"
           @touchstart="startFilling()"
           @touchend="stopFilling()"
-          class="px-6 py-3 transition-colors select-none active:scale-95 duration-150 w-100 hover:cursor-pointer"
+          class="px-6 py-3 transition-colors select-none active:scale-95 duration-150 w-full hover:cursor-pointer"
         >
           Maintenir enfoncé
         </button>
