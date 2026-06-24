@@ -26,7 +26,7 @@ export default {
 <template>
   <div class="h-10 p-4 w-full grid grid-cols-3 items-center justify-center">
     <div class="col-span-1 flex justify-start">
-      <p class="text-(--title) text-md md:text-5xl ml-15">Score: {{ score }}</p>
+      <p class="text-(--title) text-lg md:text-3xl ml-15">Score: {{ score }}</p>
     </div>
     <div class="col-span-1 flex justify-center">
       <Timer @timeout="$emit('timeout')" v-if="status === 'playing'" />
