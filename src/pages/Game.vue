@@ -14,6 +14,7 @@ import Click from "@/components/mini-games/Click.vue";
 import Defusing from "@/components/mini-games/Defusing.vue";
 import MathEquation from "@/components/mini-games/MathEquation.vue";
 import ProgressBar from "@/components/mini-games/ProgressBar.vue";
+import SwipeCard from "@/components/mini-games/SwipeCard.vue";
 import BorderMainSvg from "@/components/svg/borderDesign/BorderMain.svg.vue";
 import ButtonSvg from "@/components/svg/borderDesign/Button.svg.vue";
 
@@ -25,6 +26,7 @@ const miniGameComponents = {
     "math-equation": MathEquation,
     "progress-bar": ProgressBar,
     temperature: Temperature,
+    "swipe-card": SwipeCard,
 };
 
 export default {
